@@ -18,15 +18,14 @@ class Solution:
                 return 1
             if s[0] == '0':
                 return 0
-            elif len(s) == 1:
+            if len(s) == 1:
                 return 1
-            elif s in memo:
+            if s in memo:
                 return memo[s]
-            else:
-                r = decode(s[1:]) + (decode(s[2:]) if int(s[:2]) <= 26 else 0)
-                memo[s] = r
-                return r
+            r = decode(s[1:]) + (decode(s[2:]) if int(s[:2]) <= 26 else 0)
+            memo[s] = r
+            return r
         return decode(s)
 
 sol = Solution()
-print(sol.numDecodings("226"))
+print(sol.numDecodings("12"))
